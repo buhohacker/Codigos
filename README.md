@@ -1,2 +1,2 @@
-# C-digos
+# Codigos
 Trabajo sobre códigos de barras y códigos bidimensionales.
