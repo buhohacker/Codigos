@@ -8,6 +8,8 @@ Created on Sat Mar  9 08:37:19 2019
 ### PRUEBA DE LA GENERACIÓN DE CÓDIGOS QR. ###
 
 import qrcode  # Importamos el modulo necesario para trabajar con codigos QR
+import qrtools
+import pyqrcode
 #from PIL import Image
 
 ###  QR 1.  ###
@@ -45,6 +47,15 @@ imagen3 = qr.make_image()
 # Guardemos la imagen con la extension que queramos
 imagen3.save('codigo3.png')
 
+
+
+###  Decodificación de un código QR.  ###
+#qr = pyqrcode.create("HORN O.K. PLEASE.")
+#qr.png("horn.png", scale=6)
+#
+#qr = qrtools.QR()
+#qr.decode("horn.png")
+#print (qr.data)
 
 
 
