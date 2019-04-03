@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Hilbert</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>hilbert.ico</normaloff>hilbert.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="boton_Hilbert">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>480</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="toolTip">
+     <string>dsd</string>
+    </property>
+    <property name="accessibleName">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Aplicar Hilbert</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imagenOriginal">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>200</y>
+      <width>256</width>
+      <height>256</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>256</width>
+      <height>256</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>256</width>
+      <height>256</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_Linear">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>480</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Aplicar Linear</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imagenHilbert">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>200</y>
+      <width>256</width>
+      <height>256</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>256</width>
+      <height>256</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>256</width>
+      <height>256</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="imagenLinear">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>200</y>
+      <width>256</width>
+      <height>256</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>256</width>
+      <height>256</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>256</width>
+      <height>256</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <widget class="QMenu" name="Guardar_Imagen">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="title">
+      <string>Guardar Imagen</string>
+     </property>
+     <addaction name="Guardar_Gris"/>
+     <addaction name="Guardar_Hilbert"/>
+     <addaction name="Guardar_Linear"/>
+    </widget>
+    <addaction name="Cargar_Imagen"/>
+    <addaction name="Guardar_Imagen"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="Cargar_Imagen">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Cargar Imagen</string>
+   </property>
+  </action>
+  <action name="Guardar_Gris">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Gris</string>
+   </property>
+  </action>
+  <action name="Guardar_Hilbert">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Hilbert</string>
+   </property>
+  </action>
+  <action name="Guardar_Linear">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Linear</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

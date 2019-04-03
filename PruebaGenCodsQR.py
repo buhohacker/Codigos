@@ -49,6 +49,19 @@ imagen3.save('codigo3.png')
 
 
 
+qr = qrcode.QRCode(
+    version=1,
+    #error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+qr.add_data('Me encanta el rosa')
+qr.make(fit=True)
+img = qr.make_image(fill_color="red", back_color="pink")
+archivo_imagen2 = open('patata.png', 'wb')
+img.save(archivo_imagen2)
+archivo_imagen2.close()
+
 ###  Decodificación de un código QR.  ###
 #qr = pyqrcode.create("HORN O.K. PLEASE.")
 #qr.png("horn.png", scale=6)
