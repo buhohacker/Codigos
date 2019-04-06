@@ -70,5 +70,28 @@ archivo_imagen2.close()
 #qr.decode("horn.png")
 #print (qr.data)
 
+''' FUNCIONES '''
+
+
+
+# Función para escoger color de un código.
+
+def seleccionaColor(colorQr, colorFondo, qr):
+    img = qr.make_image(fill_color=colorQr, back_color=colorFondo)
+    archivo_imagen2 = open('TUNANTE.png', 'wb')
+    img.save(archivo_imagen2)
+    archivo_imagen2.close()
+
+
+# Prueba de la función.
+pruebaQR = qrcode.QRCode()
+pruebaQR.add_data('Prueba de la funcion')
+seleccionaColor("cyan","black", pruebaQR)
+
+
+
+
+
+
 
 

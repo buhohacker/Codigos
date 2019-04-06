@@ -1,0 +1,7 @@
+--> Ver como añadir enlaces o similares.
+--> Personalizar el color del código.
+--> Obtener errores de los códigos,
+    alterando los códigos para ver el margen de error. Hacer grafica o
+    kks parecidas.
+--> Decodificar el código. https://codeday.me/es/qa/20190116/94739.html
+--> Interfaz reciclar Hilbert.
