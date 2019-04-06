@@ -40,20 +40,39 @@
      </size>
     </property>
     <property name="text">
-     <string/>
+     <string>QR</string>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QTextBrowser" name="TextoCodigo">
     <property name="geometry">
      <rect>
-      <x>475</x>
-      <y>241</y>
-      <width>321</width>
-      <height>231</height>
+      <x>450</x>
+      <y>270</y>
+      <width>381</width>
+      <height>131</height>
      </rect>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextSelectableByMouse</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="GenerarCodigo">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>450</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Generar Codigo</string>
     </property>
    </widget>
   </widget>
@@ -70,15 +89,25 @@
     <property name="title">
      <string>Archivo</string>
     </property>
-    <addaction name="Cargar_Codigo"/>
-    <addaction name="actionGuardar_Codigo"/>
+    <addaction name="CargarCodigo"/>
+    <addaction name="GuardarCodigo"/>
    </widget>
    <widget class="QMenu" name="menuPersonalizar">
     <property name="title">
      <string>Personalizar</string>
     </property>
-    <addaction name="actionColor_Fondo"/>
-    <addaction name="actionColor_Codigo"/>
+    <widget class="QMenu" name="ColorFondo">
+     <property name="title">
+      <string>Color Fondo</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="ColorCodigo">
+     <property name="title">
+      <string>Color Codigo</string>
+     </property>
+    </widget>
+    <addaction name="ColorFondo"/>
+    <addaction name="ColorCodigo"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuPersonalizar"/>
@@ -88,7 +117,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <action name="Cargar_Codigo">
+  <action name="CargarCodigo">
    <property name="checkable">
     <bool>false</bool>
    </property>
@@ -120,19 +149,9 @@
     <string>Linear</string>
    </property>
   </action>
-  <action name="actionGuardar_Codigo">
+  <action name="GuardarCodigo">
    <property name="text">
     <string>Guardar Codigo</string>
-   </property>
-  </action>
-  <action name="actionColor_Fondo">
-   <property name="text">
-    <string>Color Fondo</string>
-   </property>
-  </action>
-  <action name="actionColor_Codigo">
-   <property name="text">
-    <string>Color Codigo</string>
    </property>
   </action>
  </widget>
