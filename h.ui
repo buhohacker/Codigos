@@ -18,32 +18,7 @@
     <normaloff>hilbert.ico</normaloff>hilbert.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="boton_Hilbert">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>480</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="contextMenuPolicy">
-     <enum>Qt::NoContextMenu</enum>
-    </property>
-    <property name="toolTip">
-     <string>dsd</string>
-    </property>
-    <property name="accessibleName">
-     <string/>
-    </property>
-    <property name="text">
-     <string>Aplicar Hilbert</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="imagenOriginal">
+   <widget class="QLabel" name="imagenCodigo">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -71,76 +46,14 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="boton_Linear">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
+   <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>480</y>
-      <width>93</width>
-      <height>28</height>
+      <x>475</x>
+      <y>241</y>
+      <width>321</width>
+      <height>231</height>
      </rect>
-    </property>
-    <property name="text">
-     <string>Aplicar Linear</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="imagenHilbert">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>200</y>
-      <width>256</width>
-      <height>256</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>256</width>
-      <height>256</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>256</width>
-      <height>256</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="imagenLinear">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>200</y>
-      <width>256</width>
-      <height>256</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>256</width>
-      <height>256</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>256</width>
-      <height>256</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -157,33 +70,30 @@
     <property name="title">
      <string>Archivo</string>
     </property>
-    <widget class="QMenu" name="Guardar_Imagen">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="title">
-      <string>Guardar Imagen</string>
-     </property>
-     <addaction name="Guardar_Gris"/>
-     <addaction name="Guardar_Hilbert"/>
-     <addaction name="Guardar_Linear"/>
-    </widget>
-    <addaction name="Cargar_Imagen"/>
-    <addaction name="Guardar_Imagen"/>
+    <addaction name="Cargar_Codigo"/>
+    <addaction name="actionGuardar_Codigo"/>
+   </widget>
+   <widget class="QMenu" name="menuPersonalizar">
+    <property name="title">
+     <string>Personalizar</string>
+    </property>
+    <addaction name="actionColor_Fondo"/>
+    <addaction name="actionColor_Codigo"/>
    </widget>
    <addaction name="menuArchivo"/>
+   <addaction name="menuPersonalizar"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="enabled">
     <bool>true</bool>
    </property>
   </widget>
-  <action name="Cargar_Imagen">
+  <action name="Cargar_Codigo">
    <property name="checkable">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Cargar Imagen</string>
+    <string>Cargar Codigo</string>
    </property>
   </action>
   <action name="Guardar_Gris">
@@ -208,6 +118,21 @@
    </property>
    <property name="text">
     <string>Linear</string>
+   </property>
+  </action>
+  <action name="actionGuardar_Codigo">
+   <property name="text">
+    <string>Guardar Codigo</string>
+   </property>
+  </action>
+  <action name="actionColor_Fondo">
+   <property name="text">
+    <string>Color Fondo</string>
+   </property>
+  </action>
+  <action name="actionColor_Codigo">
+   <property name="text">
+    <string>Color Codigo</string>
    </property>
   </action>
  </widget>
