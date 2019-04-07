@@ -3,7 +3,7 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 from PyQt5 import uic
-from PyQt5.QtGui import  QPixmap, QImage
+from PyQt5.QtGui import  QPixmap
 from PIL import Image
 from PIL.ImageQt import ImageQt
 from functools import partial
@@ -15,7 +15,7 @@ Ui_MainWindow, QtBaseClass = uic.loadUiType("codigos_qr.ui")
 class HilbertUI(QMainWindow):
     nombreImagenCodigo = ''
     imgCodigo = ''
-    listaColores = ['black', 'white', 'red', 'cyan', 'rose', 'orange', 'blue']
+    listaColores = [('black', 'Negro'), ('white', 'Blanco'), ('red', 'Rojo'), ('cyan', 'Cian'), ('rose', 'Rosa'), ('orange', 'Naranja'), ('blue', 'Azul')]
     colorBack = 'white'
     colorCod = 'black'
     
@@ -40,27 +40,34 @@ class HilbertUI(QMainWindow):
         self.nombreImagenCodigo, _ = QFileDialog.getOpenFileName(self,"Seleccionar Codigo", "./","Imágenes (*.png *.jpg)")
         self.imgCodigo = Image.open(self.nombreImagenCodigo)
         self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(self.imgCodigo)))
+        
+        """ TODO descifrar automaticamente al cargar ¿?"""
 
     
     def guardarCodigo(self):
         self.nombreImagenCodigo, _ = QFileDialog.getSaveFileName(self,"Seleccionar Imagen", "./" + self.nombreImagenCodigo,"Imágenes (*.png *.jpg)")
         self.imgCodigo.save(self.nombreImagenCodigo)
 
+    #Funciones Personalizar
     def menusColores(self):
         
-        for col in self.listaColores:
+        for (col, colE) in self.listaColores:
             
-            optionCol = self.ui.ColorFondo.addAction(col)
+            optionCol = self.ui.ColorFondo.addAction(colE)
             optionCol.triggered.connect(partial(self.cambiarColorBack, col))
             
-            optionCol = self.ui.ColorCodigo.addAction(col)
+            optionCol = self.ui.ColorCodigo.addAction(colE)
             optionCol.triggered.connect(partial(self.cambiarColorCod, col))
 
     def cambiarColorBack(self, color):
         self.colorBack = color
+        """TODO Agregar cambio de color al codigo"""
         
     def cambiarColorCod(self, color):
         self.colorCod = color
+        """TODO Agregar cambio de color al codigo"""
+        
+    """TODO metodo descifr/crear codigo"""
         
 """ Consola """    
 if __name__ == "__main__":
