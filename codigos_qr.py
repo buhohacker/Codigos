@@ -1,5 +1,5 @@
 
- 
+# Paquetes.
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 from PyQt5 import uic
@@ -8,6 +8,8 @@ from PIL import Image
 from PIL.ImageQt import ImageQt
 from functools import partial
 
+# Paquete para trabajar con los códigos QR.
+import qrcode
 
 ###Interfaz###
 Ui_MainWindow, QtBaseClass = uic.loadUiType("codigos_qr.ui")
@@ -33,6 +35,8 @@ class HilbertUI(QMainWindow):
         
         self.menusColores()
         
+        # Línea de cód para activar el botón y que llama a la función línea 
+        self.ui.GenerarCodigo.clicked.connect(self.generarCod)
         
         
     ### Funciones de carga ###
@@ -68,6 +72,12 @@ class HilbertUI(QMainWindow):
         """TODO Agregar cambio de color al codigo"""
         
     """TODO metodo descifr/crear codigo"""
+    def generarCod(self):
+        textoCod = ''
+        textoCod = self.ui.TextoCodigo
+        qr = qrcode.make(textoCod)
+        self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(qr)))
+    
         
 """ Consola """    
 if __name__ == "__main__":
