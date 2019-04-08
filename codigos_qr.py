@@ -72,9 +72,8 @@ class HilbertUI(QMainWindow):
         """TODO Agregar cambio de color al codigo"""
         
     """TODO metodo descifr/crear codigo"""
-    def generarCod(self):
-        textoCod = ''
-        textoCod = self.ui.TextoCodigo
+    def generarCod(self): 
+        textoCod = self.ui.TextoCodigo.toPlainText()
         qr = qrcode.make(textoCod)
         self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(qr)))
     
