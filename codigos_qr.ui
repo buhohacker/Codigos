@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Hilbert</string>
+   <string>Codigos Bidimensionales</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>hilbert.ico</normaloff>hilbert.ico</iconset>
+    <normaloff>icono.ico</normaloff>icono.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="imagenCodigo">

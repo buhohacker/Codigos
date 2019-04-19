@@ -10,11 +10,12 @@ from functools import partial
 
 # Paquete para trabajar con los códigos QR.
 import qrcode
+from pyzbar.pyzbar import decode
 
 ###Interfaz###
 Ui_MainWindow, QtBaseClass = uic.loadUiType("codigos_qr.ui")
 
-class HilbertUI(QMainWindow):
+class QRcodeUI(QMainWindow):
     nombreImagenCodigo = ''
     imgCodigo = ''
     listaColores = [('black', 'Negro'), ('white', 'Blanco'), ('red', 'Rojo'), ('cyan', 'Cian'), ('rose', 'Rosa'), ('orange', 'Naranja'), ('blue', 'Azul')]
@@ -22,7 +23,7 @@ class HilbertUI(QMainWindow):
     colorCod = 'black'
     
     def __init__(self):
-        super(HilbertUI, self).__init__()
+        super(QRcodeUI, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.CargarCodigo.triggered.connect(self.cargarCodigo)
@@ -44,8 +45,8 @@ class HilbertUI(QMainWindow):
         self.nombreImagenCodigo, _ = QFileDialog.getOpenFileName(self,"Seleccionar Codigo", "./","Imágenes (*.png *.jpg)")
         self.imgCodigo = Image.open(self.nombreImagenCodigo)
         self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(self.imgCodigo)))
-        
-        """ TODO descifrar automaticamente al cargar ¿?"""
+        qrTexto = decode(Image.open(self.nombreImagenCodigo))[0].data.decode("utf-8")
+        self.ui.TextoCodigo.setText(qrTexto)
 
     
     def guardarCodigo(self):
@@ -81,6 +82,6 @@ class HilbertUI(QMainWindow):
 """ Consola """    
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = HilbertUI()
+    window = QRcodeUI()
     window.show()
     app.exec_()
