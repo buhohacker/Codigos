@@ -18,7 +18,7 @@ Ui_MainWindow, QtBaseClass = uic.loadUiType("codigos_qr.ui")
 class QRcodeUI(QMainWindow):
     nombreImagenCodigo = ''
     imgCodigo = ''
-    listaColores = [('black', 'Negro'), ('white', 'Blanco'), ('red', 'Rojo'), ('cyan', 'Cian'), ('rose', 'Rosa'), ('orange', 'Naranja'), ('blue', 'Azul')]
+    listaColores = [('black', 'Negro'), ('white', 'Blanco'), ('red', 'Rojo'), ('cyan', 'Cian'), ('pink', 'Rosa'), ('orange', 'Naranja'), ('blue', 'Azul')]
     colorBack = 'white'
     colorCod = 'black'
     
@@ -36,8 +36,15 @@ class QRcodeUI(QMainWindow):
         
         self.menusColores()
         
+        #######
+        self.ui.ColorFondo.triggered.connect(self.cambiarColorBack)
+        #######
+        
         # Línea de cód para activar el botón y que llama a la función línea 
         self.ui.GenerarCodigo.clicked.connect(self.generarCod)
+        
+        #
+        self.ui.CargarCodigo.triggered.connect(self.descifrarCod)
         
         
     ### Funciones de carga ###
@@ -65,18 +72,110 @@ class QRcodeUI(QMainWindow):
             optionCol.triggered.connect(partial(self.cambiarColorCod, col))
 
     def cambiarColorBack(self, color):
-        self.colorBack = color
+        #self.colorBack = color
         """TODO Agregar cambio de color al codigo"""
+        
+        textoCod = self.ui.TextoCodigo.toPlainText()
+        qr = qrcode.QRCode()      
+        qr.add_data(textoCod)
+        
+        for (col, colE) in self.listaColores:
+            # Color de fondo negro.
+            if ((col, colE) == (color, 'Negro')):    
+                img = qr.make_image(back_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de fondo blanco.
+            if ((col, colE) == (color, 'Blanco')):    
+                img = qr.make_image(back_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de fondo rojo.
+            if ((col, colE) == (color, 'Rojo')):    
+                img = qr.make_image(back_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de fondo cian.
+            if ((col, colE) == (color, 'Cian')):    
+                img = qr.make_image(back_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de fondo rosa.
+            if ((col, colE) == (color, 'Rosa')):    
+                img = qr.make_image(back_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de fondo naranja.
+            if ((col, colE) == (color, 'Naranja')):    
+                img = qr.make_image(back_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de fondo azul.
+            if ((col, colE) == (color, 'Azul')):    
+                img = qr.make_image(back_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+        
         
     def cambiarColorCod(self, color):
         self.colorCod = color
+        
         """TODO Agregar cambio de color al codigo"""
+        
+        textoCod = self.ui.TextoCodigo.toPlainText()
+        qr = qrcode.QRCode()      
+        qr.add_data(textoCod)
+        
+        for (col, colE) in self.listaColores:
+            # Color de codigo negro.
+            if ((col, colE) == (color, 'Negro')):    
+                img = qr.make_image(fill_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de codigo blanco.
+            if ((col, colE) == (color, 'Blanco')):    
+                img = qr.make_image(fill_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de codigo rojo.
+            if ((col, colE) == (color, 'Rojo')):    
+                img = qr.make_image(fill_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de codigo cian.
+            if ((col, colE) == (color, 'Cian')):    
+                img = qr.make_image(fill_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de codigo rosa.
+            if ((col, colE) == (color, 'Rosa')):    
+                img = qr.make_image(fill_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de codigo naranja.
+            if ((col, colE) == (color, 'Naranja')):    
+                img = qr.make_image(fill_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+                
+            # Color de codigo azul.
+            if ((col, colE) == (color, 'Azul')):    
+                img = qr.make_image(fill_color=color)
+                self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+        
         
     """TODO metodo descifr/crear codigo"""
     def generarCod(self): 
         textoCod = self.ui.TextoCodigo.toPlainText()
-        qr = qrcode.make(textoCod)
-        self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(qr)))
+
+        qr = qrcode.QRCode()
+        qr.add_data(textoCod)
+
+        img = qr.make_image()
+        self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
+    
+        
+    def descifrarCod(self): 
+        qrTexto = decode(Image.open(self.nombreImagenCodigo))[0].data.decode("utf-8")
+        self.ui.TextoCodigo.setText(qrTexto)
     
         
 """ Consola """    
