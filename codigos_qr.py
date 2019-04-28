@@ -19,8 +19,10 @@ class QRcodeUI(QMainWindow):
     nombreImagenCodigo = ''
     imgCodigo = ''
     listaColores = [('black', 'Negro'), ('white', 'Blanco'), ('red', 'Rojo'), ('cyan', 'Cian'), ('pink', 'Rosa'), ('orange', 'Naranja'), ('blue', 'Azul')]
-    colorBack = 'white'
-    colorCod = 'black'
+   # colorBack = 'white'
+   # colorCod = 'black'
+   
+   # QR
     
     def __init__(self):
         super(QRcodeUI, self).__init__()
@@ -34,11 +36,7 @@ class QRcodeUI(QMainWindow):
         
         self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(Image.new('RGBA', (256,256), (255,255,255)))))
         
-        self.menusColores()
-        
-        #######
-        self.ui.ColorFondo.triggered.connect(self.cambiarColorBack)
-        #######
+        self.menusColores()        
         
         # Línea de cód para activar el botón y que llama a la función línea 
         self.ui.GenerarCodigo.clicked.connect(self.generarCod)
@@ -117,13 +115,15 @@ class QRcodeUI(QMainWindow):
         
         
     def cambiarColorCod(self, color):
-        self.colorCod = color
+        #self.colorCod = color
         
         """TODO Agregar cambio de color al codigo"""
-        
+
+     
         textoCod = self.ui.TextoCodigo.toPlainText()
         qr = qrcode.QRCode()      
         qr.add_data(textoCod)
+        
         
         for (col, colE) in self.listaColores:
             # Color de codigo negro.
@@ -170,6 +170,8 @@ class QRcodeUI(QMainWindow):
         qr.add_data(textoCod)
 
         img = qr.make_image()
+        #self.QR = qr
+        
         self.ui.imagenCodigo.setPixmap(QPixmap.fromImage(ImageQt(img)))
     
         
