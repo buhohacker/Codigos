@@ -1,2 +1,2 @@
 # Codigos
-Trabajo sobre códigos de barras y códigos bidimensionales.
+Work on barcodes and two-dimensional codes.
