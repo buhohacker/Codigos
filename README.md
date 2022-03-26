@@ -1,2 +1,2 @@
-# Codigos  ![img](https://img.shields.io/badge/buhohacker-Fullstack-blue) 🦉
+# Codigos  ![img](https://img.shields.io/badge/buhohacker-Codigos-blue) 🦉
 Work on barcodes and two-dimensional codes
